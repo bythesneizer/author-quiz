@@ -1,5 +1,5 @@
 //Packages
-import React, { Component } from "react";
+import React from "react";
 
 //Components
 import Hero from "./components/Hero.js";
@@ -11,26 +11,17 @@ import Footer from "./components/Footer.js";
 import "./AuthorQuiz.css";
 import "./bootstrap.min.css";
 
-class AuthorQuiz extends Component {
-  render() {
-    const authors = [
-      {
-        name: "Mark Twain",
-        imageUrl: "./images/authors/marktwain.jpg",
-        imageSource: "Wikipedia Commons",
-        books: ["The Adventures of Huckleberry Finn"]
-      }
-    ];
+const AuthorQuiz = ({turnData}) => {
 
     return (
       <div className="container-fluid">
         <Hero />
-        <Turn author={authors[0]} books={authors[0].books} />
+        <Turn {...turnData} />
         <Continue />
         <Footer />
       </div>
     );
-  }
+
 }
 
 export default AuthorQuiz;
