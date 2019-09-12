@@ -1,7 +1,7 @@
 import React from "react";
 import "../bootstrap.min.css";
 
-export default function Hero() {
+export default function Header() {
   return (
     <div className="row">
       <div className="jumbotron col-10 offset-1">

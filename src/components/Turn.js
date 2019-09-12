@@ -1,5 +1,7 @@
 import React from "react";
 import "../bootstrap.min.css";
+import "./Turn.css";
+import Book from "./Book";
 
 const Turn = props => {
   return (
@@ -9,7 +11,7 @@ const Turn = props => {
       </div>
       <div className="col-6">
         {props.books.map(title => (
-          <p>{title}</p>
+          <Book onClick={handleClick} key={title} title={title} />
         ))}
       </div>
     </div>
