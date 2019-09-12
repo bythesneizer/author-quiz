@@ -28,7 +28,19 @@ const getTurnData = authors => {
 
 class AuthorQuiz extends Component {
   state = {
-    turnData: getTurnData(this.props.authors)
+    turnData: getTurnData(this.props.authors),
+    highlight: ""
+  };
+
+  onAnswerSelected = answer => {
+    const isCorrect = this.state.turnData.author.books.some(
+      book => book === answer
+    );
+    console.log(isCorrect);
+    const value = isCorrect ? "correct" : "wrong";
+    this.setState({
+      highlight: value
+    });
   };
 
   render() {
@@ -38,6 +50,8 @@ class AuthorQuiz extends Component {
         <Turn
           author={this.state.turnData.author}
           books={this.state.turnData.books}
+          highlight={this.state.highlight}
+          onAnswerSelected={this.onAnswerSelected}
         />
         <Continue />
         <Footer />
